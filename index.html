@@ -65,15 +65,20 @@
         return 1;
       }
     })
-    console.table(oldest1);
+    //console.table(oldest1);
 
     const oldest2 = inventors.sort((a,b) => {
       return ((a.passed - a.year) > (b.passed - b.year)) ? -1 : 1;
     })
-    console.table(oldest2);
+    //console.table(oldest2);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
+    const totalAge = inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year)
+    }, 0) //0 is start value, so it doesnt start with undefined
+
+    console.log(totalAge)
 
     // 5. Sort the inventors by years lived
 
